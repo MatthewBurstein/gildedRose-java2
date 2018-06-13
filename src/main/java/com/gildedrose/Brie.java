@@ -8,13 +8,10 @@ public class Brie extends GenericItem {
 
     @Override
     public void updateQuality() {
-        if (quality < 50) {
+        increaseQuality();
+        if (sellIn < 0) {
             increaseQuality();
         }
-        if (quality < 50) {
-            if (sellIn < 0) {
-                increaseQuality();
-            }
-        }
+        ensureQualityLessThan51();
     }
 }

@@ -6,7 +6,7 @@ class GildedRose {
     public GildedRose(Item[] items) {
         this.items = new GenericItem[items.length];
         for (int i = 0; i < items.length; i++) {
-            this.items[i]= categorize(items[i]);
+            this.items[i] = categorize(items[i]);
         }
     }
 
@@ -24,7 +24,9 @@ class GildedRose {
             return new Brie(item.name, item.sellIn, item.quality);
         } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             return new Pass(item.name, item.sellIn, item.quality);
-        } else {
+        } else if (item.name.equals("Conjured Mana Cake")) {
+            return new ConjuredItem(item.name, item.sellIn, item.quality);
+        } else{
             return new GenericItem(item.name, item.sellIn, item.quality);
         }
     }

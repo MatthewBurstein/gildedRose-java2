@@ -11,7 +11,15 @@ public class GenericItem extends Item {
         if (sellIn <= 0) {
             quality--;
         }
+        ensureQualityNonNegative();
+    }
+
+    void ensureQualityNonNegative() {
         quality = quality < 0 ? 0 : quality;
+    }
+
+    void ensureQualityLessThan51() {
+        quality = quality > 50 ? 50 : quality;
     }
 
     void increaseQuality() {
