@@ -11,6 +11,8 @@ class GildedRose {
                 item = new Sulfuras(items[i].name, items[i].sellIn, items[i].quality);
             } else if (items[i].name.equals("Aged Brie")) {
                 item = new Brie(items[i].name, items[i].sellIn, items[i].quality);
+            } else if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                item = new Pass(items[i].name, items[i].sellIn, items[i].quality);
             } else {
                 item = new GenericItem(items[i].name, items[i].sellIn, items[i].quality);
             }

@@ -1,8 +1,8 @@
 package com.gildedrose;
 
-public class Brie extends GenericItem {
+public class Pass extends GenericItem {
 
-    public Brie(String name, int sellIn, int quality) {
+    public Pass(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
     }
 
@@ -10,16 +10,20 @@ public class Brie extends GenericItem {
     public void updateQuality() {
         if (quality < 50) {
             increaseQuality();
-        }
-        if (quality < 50) {
-            if (sellIn < 0) {
+            if (sellIn < 11) {
                 increaseQuality();
             }
+            if (sellIn < 6) {
+                increaseQuality();
+            }
+        }
+        if (sellIn < 0) {
+            quality = 0;
         }
         sellIn--;
     }
 
     private void increaseQuality() {
-        quality ++;
+        quality++;
     }
 }

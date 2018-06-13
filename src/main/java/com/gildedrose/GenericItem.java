@@ -7,30 +7,13 @@ public class GenericItem extends Item {
     }
 
     public void updateQuality() {
-        if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            if (quality < 50) {
-                increaseItemQuality();
-                if (sellIn < 11) {
-                    increaseItemQuality();
-                }
-                if (sellIn < 6) {
-                    increaseItemQuality();
-                }
-            }
-        } else {
-            if (quality > 0) {
-                quality--;
-            }
+        if (quality > 0) {
+            quality--;
         }
         sellIn--;
-
         if (sellIn < 0) {
-            if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                quality = 0;
-            } else {
-                if (quality > 0) {
-                    quality--;
-                }
+            if (quality > 0) {
+                quality--;
             }
         }
     }
