@@ -1,63 +1,24 @@
 package com.gildedrose;
 
 class GildedRose {
-    Item[] items;
+    GenericItem[] items;
 
     public GildedRose(Item[] items) {
-        this.items = items;
-    }
-
-    public void updateQuality() {
-        for (Item item : items) {
-            if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (item.quality < 50) {
-                    increaseItemQuality(item);
-                    if (item.sellIn < 11) {
-                        increaseItemQuality(item);
-                    }
-                    if (item.sellIn < 6) {
-                        increaseItemQuality(item);
-                    }
-                }
-            } else if (item.name.equals("Aged Brie")) {
-                if (item.quality < 50) {
-                    increaseItemQuality(item);
-                }
+        this.items = new GenericItem[items.length];
+        for (int i = 0; i < items.length; i++) {
+            GenericItem item;
+            if (items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+                item = new Sulfuras(items[i].name, items[i].sellIn, items[i].quality);
             } else {
-                if (item.quality > 0) {
-                    if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                    } else {
-                        item.quality--;
-                    }
-                }
+                item = new GenericItem(items[i].name, items[i].sellIn, items[i].quality);
             }
-
-            if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            } else {
-                item.sellIn--;
-            }
-
-            if (item.sellIn < 0) {
-                if (item.name.equals("Aged Brie")) {
-                    if (item.quality < 50) {
-                        increaseItemQuality(item);
-                    }
-                } else {
-                    if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        item.quality = 0;
-                    } else {
-                        if (item.quality > 0) {
-                            if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                                item.quality--;
-                            }
-                        }
-                    }
-                }
-            }
+            this.items[i] = item;
         }
     }
 
-    private void increaseItemQuality(Item item) {
-        item.quality++;
+    public void updateQuality() {
+        for (GenericItem item : items) {
+            item.updateQuality();
+        }
     }
 }
