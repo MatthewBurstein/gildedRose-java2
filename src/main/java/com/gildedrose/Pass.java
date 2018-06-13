@@ -20,10 +20,5 @@ public class Pass extends GenericItem {
         if (sellIn < 0) {
             quality = 0;
         }
-        sellIn--;
-    }
-
-    private void increaseQuality() {
-        quality++;
     }
 }

@@ -16,10 +16,5 @@ public class Brie extends GenericItem {
                 increaseQuality();
             }
         }
-        sellIn--;
-    }
-
-    private void increaseQuality() {
-        quality ++;
     }
 }

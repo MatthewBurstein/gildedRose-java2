@@ -7,18 +7,18 @@ public class GenericItem extends Item {
     }
 
     public void updateQuality() {
-        if (quality > 0) {
+        quality--;
+        if (sellIn <= 0) {
             quality--;
         }
-        sellIn--;
-        if (sellIn < 0) {
-            if (quality > 0) {
-                quality--;
-            }
-        }
+        quality = quality < 0 ? 0 : quality;
     }
 
-    private void increaseItemQuality() {
+    void increaseQuality() {
         quality++;
+    }
+
+    void decreaseSellIn() {
+        sellIn--;
     }
 }

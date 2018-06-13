@@ -8,4 +8,6 @@ public class Sulfuras extends GenericItem {
     @Override
     public void updateQuality() {
     }
+
+    public void decreaseSellIn() {}
 }
