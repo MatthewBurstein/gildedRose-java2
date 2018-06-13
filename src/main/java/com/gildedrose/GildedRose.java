@@ -1,23 +1,23 @@
 package com.gildedrose;
 
 class GildedRose {
-    GenericItem[] items;
+    Item[] items;
 
     public GildedRose(Item[] items) {
-        this.items = new GenericItem[items.length];
+        this.items = new Item[items.length];
         for (int i = 0; i < items.length; i++) {
             this.items[i] = categorize(items[i]);
         }
     }
 
     public void updateQuality() {
-        for (GenericItem item : items) {
+        for (Item item: items) {
             item.updateQuality();
             item.decreaseSellIn();
         }
     }
 
-    private GenericItem categorize(Item item) {
+    private Item categorize(Item item) {
         if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
             return new Sulfuras(item.name, item.sellIn, item.quality);
         } else if (item.name.equals("Aged Brie")) {
@@ -27,7 +27,7 @@ class GildedRose {
         } else if (item.name.equals("Conjured Mana Cake")) {
             return new ConjuredItem(item.name, item.sellIn, item.quality);
         } else{
-            return new GenericItem(item.name, item.sellIn, item.quality);
+            return item;
         }
     }
 }
