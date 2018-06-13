@@ -17,10 +17,6 @@ public class GenericItem extends Item {
                     increaseItemQuality();
                 }
             }
-        } else if (name.equals("Aged Brie")) {
-            if (quality < 50) {
-                increaseItemQuality();
-            }
         } else {
             if (quality > 0) {
                 quality--;
@@ -29,17 +25,11 @@ public class GenericItem extends Item {
         sellIn--;
 
         if (sellIn < 0) {
-            if (name.equals("Aged Brie")) {
-                if (quality < 50) {
-                    increaseItemQuality();
-                }
+            if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                quality = 0;
             } else {
-                if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                    quality = 0;
-                } else {
-                    if (quality > 0) {
-                        quality--;
-                    }
+                if (quality > 0) {
+                    quality--;
                 }
             }
         }
